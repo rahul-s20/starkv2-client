@@ -1,0 +1,172 @@
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+#nav-bar{
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width:100%;
+}
+#carouselExampleCaptions{
+  height:10%; 
+  width:100%;
+  padding-left: 20px;
+  padding-right: 20px ;
+  padding-bottom: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  
+}
+
+#scaledpics{
+  height:400px; 
+  width:100px;
+  object-fit: cover;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#cardly{
+  max-width: 940px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-bottom: 20px !important;
+  
+}
+.card-img{
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right:  2px;
+}
+
+/* Create two equal columns that floats next to each other */
+#column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  padding-right: 10px;
+}
+
+.search-box{
+
+  position: absolute !important;
+  justify-content: center !important;
+  align-items: center !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #ffffff !important;
+  height: 40px !important;
+  border-radius: 40px !important;
+  padding: 10px !important;
+}  
+
+/* .search-box:hover > .search-txt {
+  width: 240px;
+  padding: 0 6px;
+} */
+
+.search-btn{
+  color: black;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.search-txt{
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  transition: 0.4s;
+  width: 240px;
+}
+
+#addpost{
+  position:fixed;
+width:50px;
+height:50px;
+bottom:40px;
+right:40px;
+background-color:#0C9;
+color:#FFF;
+border-radius:50px;
+text-align:center;
+box-shadow: 2px 2px 3px #999;
+}
+.my-float{
+margin-top:20px;
+}
+
+.show {display: block;}
+
+body {
+  padding: 2rem 0rem;
+}
+
+.card-title {
+  margin-bottom: 0.3rem;
+}
+
+.cat {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.fa-users {
+  margin-left: 1rem;
+}
+
+.card-footer {
+  font-size: 0.8rem;
+}
+
+.modalClass {  
+  text-align: center;  
+  margin-top: 100px;  
+}  
