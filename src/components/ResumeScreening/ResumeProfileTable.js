@@ -8,53 +8,64 @@ import DataTableExtensions from 'react-data-table-component-extensions';
 import 'react-data-table-component-extensions/dist/index.css';
 
 let data = [];
+const ExpandedSection = ({data}) => (
+  <p className="small mt-2">
+    <strong>Skills: </strong>
+    {data.skills}
+  </p>
+); 
 const columns = [
   {
     name: 'Id',
-    selector: 'id',
+    selector: row => row.id,
     sortable: true,
     maxWidth: "10px"
   },
   {
-    name: 'Resume Id',
-    selector: 'resumeId',
-    sortable: true
+    name: 'Resume',
+    selector: row => row.resumeId,
+    sortable: true,
+    cell: (d)=>{
+      let url = `http://localhost:5001/api/v1/get_resume_pdf?resume_name=${d.resumeId}`;
+      return(
+      <a href={url} target="_blank" className="dlink">{d.resumeId}</a>
+    )},
   },
   {
     name: 'Name',
-    selector: 'name',
+    selector: row => row.name,
     sortable: true
   },
   {
     name: 'Email',
-    selector: 'email',
+    selector: row => row.email,
     sortable: true,
     grow: 2
   },
   {
     name: 'Phone no',
-    selector: 'phone_no',
+    selector: row => row.phone_no,
     sortable: true
   },
   {
     name: 'Domain',
-    selector: 'domain',
+    selector: row => row.domain,
     sortable: true
   },
-  {
-    name: 'Skills',
-    selector: 'skills',
-    sortable: false,
-    wrap: true
-  },
+  // {
+  //   name: 'Skills',
+  //   selector: row => row.skills,
+  //   sortable: false,
+  //   wrap: true
+  // },
   {
     name: 'Date',
-    selector: 'date',
+    selector: row => row.date,
     sortable: true
   },
   {
     name: 'Status',
-    selector: 'status',
+    selector: row => row.status,
     sortable: true
   },
 ];
@@ -79,7 +90,7 @@ export default function ResumeProfileTable() {
           domain: res.data.data[i].domain,
           skills: res.data.data[i].skills,
           date: res.data.data[i].timestamp,
-          status: res.data.data[i].is_Active ? 'Yes': 'No'
+          status: res.data.data[i].is_Active ? 'Active': 'In Active'
         }
         data.push(dict)
       }
@@ -108,6 +119,8 @@ const handleSelectedRows = (state) => {
     setSelectedData(state.selectedRows)
   };
 
+ 
+
   return (
     <div style={{ paddingTop: "12px", margin: "10px" }}>
       <ToastContainer
@@ -131,8 +144,12 @@ const handleSelectedRows = (state) => {
           defaultSortAsc={false}
           pagination
           highlightOnHover
-          selectableRows
-          onSelectedRowsChange={handleSelectedRows}
+          expandableRows = {true}
+          expandableRowsComponent={ExpandedSection}
+          expandOnRowClicked = {true}
+          expandOnRowDoubleClicked = {false}
+          expandableRowsHideExpander = {false}
+          dense
           />
         </DataTableExtensions>
       </div>

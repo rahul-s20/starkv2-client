@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dlink {
+  text-decoration: none !important;
+  color: #03a9f3 !important;
+}
